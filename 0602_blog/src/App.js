@@ -2,22 +2,22 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  let post = '강남 우동 맛집';
+  // - JS  => document.querySelector('h4').innerHTML = post;
+  // - JSX => <h4>{post}</h4>
+
   return (
+    // html이 아닌 JSX 언어이기 때문에 작성하자마자 브라우저에 출력됨
+    // JSX는 JS 파일에서 쓰는 HTML 대용품(부가 기능)
+    //  - React => React.createElement('div', null, 'Hello World')
+    //  - JSX   => <div></div>
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='black-nav'>
+        <h4 id={post}>블로그임</h4>
+      </div>
+      <h4>{post}</h4>
     </div>
   );
 }
