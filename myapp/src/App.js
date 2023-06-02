@@ -17,6 +17,14 @@ function App() {
       <LifeCycle_2></LifeCycle_2>
       <LifeCycle_3 prop_value = "FromApps"/>
       <LifeCycle_4 prop_value = "FromApps"/>
+      <PropsDatatype
+        String="react"
+        Number={100}
+        Boolean={1==1}
+        Array={[0, 1, 8]}
+        ObjectJson={{react:"리액트", onehundred:"100"}}
+        Function={console.log("FunctionProps: function!")}
+      />
    </div>
   );
 }
