@@ -16,7 +16,10 @@ function App() {
     <div className="App">
       <div className='black-nav'>
         {/* 데이터바인딩 : 변수를 삽입 시 { 변수명 } */}
-        <h4 id={post}>블로그임</h4>
+        {/* <h4 id={post}>블로그임</h4> */}
+
+        {/* Object 자료형으로 style 지정 */}
+        <h4 style={ {color : 'red', fontSize : '16px'}}>블로그임</h4>
       </div>
       <h4>{post}</h4>
     </div>
