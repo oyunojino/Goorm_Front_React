@@ -8,7 +8,7 @@ function User({user}) {
     );
 }
 
-function UserList() {
+function UserList_1() {
     const users = [
         {
             id : 1,
@@ -47,4 +47,4 @@ function UserList() {
         </>
     )
 }
-export default UserList;
+export default UserList_1;

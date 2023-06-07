@@ -8,7 +8,7 @@ function User({user}) {
     );
 }
 
-function UserList({users}) {
+function UserList_3({users}) {
 
     return (
         <div>
@@ -20,4 +20,4 @@ function UserList({users}) {
         </div>
     )
 }
-export default UserList;
+export default UserList_3;
