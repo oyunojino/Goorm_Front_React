@@ -11,10 +11,9 @@ function App() {
   };
   return (
     <>
-      <Hello />
-      <div>name</div>
-      <div style={style}>{name}</div>
-      <div className="gray-box"></div>
+      <Hello name="react" color="red"/>
+
+      <Hello color="pink"/>
     </>
   );
 }
