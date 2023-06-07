@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
 import Hello  from "./Hello";
 import './App.css';
 import Wrapper from "./Wrapper";
@@ -9,6 +9,8 @@ import InputSample_3 from "./InputSample_3";
 import UserList_1 from "./UserList_1";
 import UserList_2 from "./UserList_2";
 import UserList_3 from "./UserList_3";
+import CreateUser from "./CreateUser";
+
 
 function App() {
   const name = 'react';
@@ -20,33 +22,86 @@ function App() {
   };
 
   // UserList_3.js
-  const users = [
-      {
-          id : 1,
-          username : 'velopert_1',
-          email  : 'public.velopert.1@gmail.com'
-      },
-      {
-          id : 2,
-          username : 'velopert_2',
-          email  : 'public.velopert.2@gmail.com'
-      },
-      {
-          id : 3,
-          username : 'velopert_3',
-          email  : 'public.velopert.3@gmail.com'
-      }
-  ];
+  // const users = [
+  //     {
+  //         id : 1,
+  //         username : 'velopert_1',
+  //         email  : 'public.velopert.1@gmail.com'
+  //     },
+  //     {
+  //         id : 2,
+  //         username : 'velopert_2',
+  //         email  : 'public.velopert.2@gmail.com'
+  //     },
+  //     {
+  //         id : 3,
+  //         username : 'velopert_3',
+  //         email  : 'public.velopert.3@gmail.com'
+  //     }
+  // ];
+
+
+  // CreateUser.js
+  const [users, setUsers] = useState([
+    {
+        id : 1,
+        username : 'velopert_1',
+        email  : 'public.velopert.1@gmail.com'
+    },
+    {
+        id : 2,
+        username : 'velopert_2',
+        email  : 'public.velopert.2@gmail.com'
+    },
+    {
+        id : 3,
+        username : 'velopert_3',
+        email  : 'public.velopert.3@gmail.com'
+    }
+]);
+
+  // CreateUser.js
+  const [inputs, setInputs] = useState({
+    username : '',
+    email : ''
+  });
+
+  const {username, email} = inputs;
+  const onChange = e => {
+    const {name, value} = e.target;
+    setInputs({
+      ...inputs,
+      [name] : value
+    })
+  }
 
   // # useRef()를 사용한 이유는?
   //  값이 바뀐다고 해서 컴포넌트가 리랜더링(새로고침) 하지 않아도 되기 때문
   const nextId = useRef(4);
 
   const onCreate = () => {
+    // UseList_3.js
 
     // # useRef(4) 값을 조회
-    console.log(nextId.current);  // 4
+    // console.log(nextId.current);  // 4
+    // nextId.current += 1;
 
+
+
+    // CreateUser.js
+    const user = {
+      id : nextId.current,
+      username,
+      email,
+      // ...inputs 이렇게 작성해도 됨
+    };
+    
+    setUsers([...users, user]);
+
+    setInputs({
+      username : '',
+      email : ''
+    });
     nextId.current += 1;
   };
 
@@ -84,7 +139,13 @@ function App() {
 
 
 
-      
+      <CreateUser
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
+      />
+      <UserList_3 users={users} />
     </>
   );
 }
