@@ -10,6 +10,7 @@ import UserList_1 from "./UserList_1";
 import UserList_2 from "./UserList_2";
 import UserList_3 from "./UserList_3";
 import UserList_4 from "./UserList_4";
+import UserList_5 from "./UserList_5";
 import CreateUser from "./CreateUser";
 
 
@@ -47,17 +48,20 @@ function App() {
     {
       id: 1,
       username: 'velopert_1',
-      email: 'public.velopert.1@gmail.com'
+      email: 'public.velopert.1@gmail.com',
+      active : true,
     },
     {
       id: 2,
       username: 'velopert_2',
-      email: 'public.velopert.2@gmail.com'
+      email: 'public.velopert.2@gmail.com',
+      active : false,
     },
     {
       id: 3,
       username: 'velopert_3',
-      email: 'public.velopert.3@gmail.com'
+      email: 'public.velopert.3@gmail.com',
+      active : false,
     }
   ]);
 
@@ -157,6 +161,14 @@ function App() {
         onCreate={onCreate}
       />
       <UserList_3 users={users} /> */}
+      {/* 배열 항목 삭제
+      <CreateUser
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
+      />
+      <UserList_4 users={users} onRemove={onRemove} /> */}
 
 
       <CreateUser
@@ -165,7 +177,7 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList_4 users={users} onRemove={onRemove} />
+      <UserList_5 users={users} onRemove={onRemove} />
     </>
   );
 }
