@@ -1,6 +1,7 @@
 import Hello  from "./Hello";
 import './App.css';
 import Wrapper from "./Wrapper";
+import Counter from "./Counter";
 
 function App() {
   const name = 'react';
@@ -12,10 +13,13 @@ function App() {
   };
   return (
     <>
+      {/* props 관련 실습
       <Wrapper>
         <Hello name="react" color="red" isSpecial={true}/>
         <Hello color="pink"/>
-      </Wrapper>
+      </Wrapper> */}
+
+      <Counter />
     </>
   );
 }
