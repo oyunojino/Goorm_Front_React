@@ -1,13 +1,15 @@
 import React from "react";
 
-function User({ user, onRemove }) {
+function User({ user, onRemove, onToggle }) {
     const { username, email, id, active } = user;
     return (
         <div>
             <b style={{
                 color: active ? 'green' : 'black',
                 cursor: 'pointer'
-            }}>
+            }}
+                onClick={() => onToggle(id)}
+            >
                 {username}
             </b>
             &nbsp;
@@ -18,16 +20,18 @@ function User({ user, onRemove }) {
     );
 }
 
-function UserList_5({ users, onRemove }) {
+function UserList_5({ users, onRemove, onToggle }) {
     return (
         <div>
             {
+                // 배열 안에 원소 업데이트 시 .map() 사용
                 users.map(
-                    (user, index) => (
+                    (user) => (
                         <User
                             user={user}
                             key={user.id}
                             onRemove={onRemove}
+                            onToggle={onToggle}
                         />
                     )
                 )

@@ -119,6 +119,13 @@ function App() {
     setUsers(users.filter(user => user.id !== id));
   };
 
+  const onToggle = id => {
+    setUsers(users.map(
+      user => user.id === id
+      ? {...user, active : !user.active} : user
+    ));
+  };
+
 
   return (
     <>
@@ -169,6 +176,14 @@ function App() {
         onCreate={onCreate}
       />
       <UserList_4 users={users} onRemove={onRemove} /> */}
+      {/* 배열 항목 부분 수정
+      <CreateUser
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
+      />
+      <UserList_5 users={users} onRemove={onRemove} /> */}
 
 
       <CreateUser
@@ -177,7 +192,8 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList_5 users={users} onRemove={onRemove} />
+      <UserList_5 users={users} onRemove={onRemove} onToggle={onToggle} />
+
     </>
   );
 }
