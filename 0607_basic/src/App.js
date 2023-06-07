@@ -5,7 +5,7 @@ import Counter from "./Counter";
 import InputSample_1 from "./InputSample_1";
 import InputSample_2 from "./InputSample_2";
 import InputSample_3 from "./InputSample_3";
-import UserList from "./UserList";
+import UserList_1 from "./UserList_1";
 
 function App() {
   const name = 'react';
@@ -39,7 +39,7 @@ function App() {
       <InputSample_3 /> */}
 
 
-      <UserList />
+      <UserList_1 />
     </>
   );
 }
