@@ -96,7 +96,12 @@ function App() {
       // ...inputs 이렇게 작성해도 됨
     };
     
-    setUsers([...users, user]);
+    // 배열 항목 변경 방법1 -> 스프레드 연산자로 복사 후 값을 덮어쓰기
+    // setUsers([...users, user]);
+    // 배열 항목 변경 방법2 -> .concat()함수 사용
+    setUsers(users.concat(user));
+
+    // users.push(user); 방법은 업데이트가 되지 않음
 
     setInputs({
       username : '',
