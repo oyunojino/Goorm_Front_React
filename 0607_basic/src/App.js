@@ -1,5 +1,5 @@
-import React, {useRef, useState} from "react";
-import Hello  from "./Hello";
+import React, { useRef, useState } from "react";
+import Hello from "./Hello";
 import './App.css';
 import Wrapper from "./Wrapper";
 import Counter from "./Counter";
@@ -9,16 +9,17 @@ import InputSample_3 from "./InputSample_3";
 import UserList_1 from "./UserList_1";
 import UserList_2 from "./UserList_2";
 import UserList_3 from "./UserList_3";
+import UserList_4 from "./UserList_4";
 import CreateUser from "./CreateUser";
 
 
 function App() {
   const name = 'react';
   const style = {
-    backgroundColor : 'black',
-    color : 'aqua',
-    fontSize : 24,
-    padding : '1rem'
+    backgroundColor: 'black',
+    color: 'aqua',
+    fontSize: 24,
+    padding: '1rem'
   };
 
   // UserList_3.js
@@ -44,34 +45,34 @@ function App() {
   // CreateUser.js
   const [users, setUsers] = useState([
     {
-        id : 1,
-        username : 'velopert_1',
-        email  : 'public.velopert.1@gmail.com'
+      id: 1,
+      username: 'velopert_1',
+      email: 'public.velopert.1@gmail.com'
     },
     {
-        id : 2,
-        username : 'velopert_2',
-        email  : 'public.velopert.2@gmail.com'
+      id: 2,
+      username: 'velopert_2',
+      email: 'public.velopert.2@gmail.com'
     },
     {
-        id : 3,
-        username : 'velopert_3',
-        email  : 'public.velopert.3@gmail.com'
+      id: 3,
+      username: 'velopert_3',
+      email: 'public.velopert.3@gmail.com'
     }
-]);
+  ]);
 
   // CreateUser.js
   const [inputs, setInputs] = useState({
-    username : '',
-    email : ''
+    username: '',
+    email: ''
   });
 
-  const {username, email} = inputs;
+  const { username, email } = inputs;
   const onChange = e => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setInputs({
       ...inputs,
-      [name] : value
+      [name]: value
     })
   }
 
@@ -81,7 +82,6 @@ function App() {
 
   const onCreate = () => {
     // UseList_3.js
-
     // # useRef(4) 값을 조회
     // console.log(nextId.current);  // 4
     // nextId.current += 1;
@@ -89,25 +89,30 @@ function App() {
 
 
     // CreateUser.js
-    const user = {
-      id : nextId.current,
-      username,
-      email,
-      // ...inputs 이렇게 작성해도 됨
-    };
-    
-    // 배열 항목 변경 방법1 -> 스프레드 연산자로 복사 후 값을 덮어쓰기
-    // setUsers([...users, user]);
-    // 배열 항목 변경 방법2 -> .concat()함수 사용
-    setUsers(users.concat(user));
+    // const user = {
+    //   id : nextId.current,
+    //   username,
+    //   email,
+    //   // ...inputs 이렇게 작성해도 됨
+    // };
 
-    // users.push(user); 방법은 업데이트가 되지 않음
+    // // 배열 항목 변경 방법1 -> 스프레드 연산자로 복사 후 값을 덮어쓰기
+    // // setUsers([...users, user]);
+    // // 배열 항목 변경 방법2 -> .concat()함수 사용
+    // setUsers(users.concat(user));
 
-    setInputs({
-      username : '',
-      email : ''
-    });
-    nextId.current += 1;
+    // // users.push(user); 방법은 업데이트가 되지 않음
+
+    // setInputs({
+    //   username : '',
+    //   email : ''
+    // });
+    // nextId.current += 1;
+  };
+
+  // UseList_4.js
+  const onRemove = id => {
+    setUsers(users.filter(user => user.id !== id));
   };
 
 
@@ -134,7 +139,7 @@ function App() {
       <InputSample_3 /> */}
 
 
-      
+
       {/* 배열 랜더링_ 변화 X
       <UserList_1 /> */}
       {/* 배열 랜더링_ 변화 O
@@ -144,13 +149,23 @@ function App() {
 
 
 
+      {/* 배열 항목 추가
       <CreateUser
         username={username}
         email={email}
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList_3 users={users} />
+      <UserList_3 users={users} /> */}
+
+
+      <CreateUser
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
+      />
+      <UserList_4 users={users} onRemove={onRemove} />
     </>
   );
 }
