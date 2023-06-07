@@ -8,9 +8,18 @@ import React from 'react';
 //  2. 이후는 camel case 기준으로 작성
 function HelloWorld(props) {
     console.log(props);
-    return <div style={{
-        color : props.color
-    }}>안녕하세요. {props.name}</div>
+    return (
+        <div style={{
+            color : props.color
+        }}>
+            {/* 방법 1 -> 삼항연산자 사용 */}
+            {props.isSpecial ? <b>*</b> : null}
+            {/* 방법 2 -> && 연산자 사용, 모두가 참일 때만 실행 */}
+            {props.isSpecial && <b>*</b>}
+
+            안녕하세요. {props.name}
+        </div>
+    )
 }
 // HelloWorld 컴포넌트를 생성해서 내보내줌
 export default HelloWorld;
