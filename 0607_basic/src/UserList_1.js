@@ -1,9 +1,11 @@
 import React from "react";
 
-function User(props) {
-    <div>
-        <b>{props.username}</b> <span>{props.email}</span>
-    </div>
+function User({user}) {
+    return (
+        <div>
+            <b>{user.username}</b> <span>{user.email}</span>
+        </div>
+    );
 }
 
 function UserList() {
