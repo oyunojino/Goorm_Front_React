@@ -11,6 +11,7 @@ import UserList_2 from "./UserList_2";
 import UserList_3 from "./UserList_3";
 import UserList_4 from "./UserList_4";
 import UserList_5 from "./UserList_5";
+import UserList_6 from "./UserList_6";
 import CreateUser from "./CreateUser";
 
 
@@ -176,7 +177,7 @@ function App() {
         onCreate={onCreate}
       />
       <UserList_4 users={users} onRemove={onRemove} /> */}
-      {/* 배열 항목 부분 수정
+      {/* 배열 항목 부분 수정_1
       <CreateUser
         username={username}
         email={email}
@@ -184,6 +185,16 @@ function App() {
         onCreate={onCreate}
       />
       <UserList_5 users={users} onRemove={onRemove} /> */}
+      {/* 배열 항목 부분 수정_2
+      <CreateUser
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
+      />
+      <UserList_5 users={users} onRemove={onRemove} onToggle={onToggle} /> */}
+
+
 
 
       <CreateUser
@@ -192,7 +203,7 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList_5 users={users} onRemove={onRemove} onToggle={onToggle} />
+      <UserList_6 users={users} onRemove={onRemove} onToggle={onToggle} />
 
     </>
   );
