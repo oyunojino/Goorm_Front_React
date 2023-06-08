@@ -40,9 +40,9 @@ function User({ user, onRemove, onToggle }) {
     // 배열이 생략 된 경우 ->
     // 컴포넌트 리랜더링 최적화가 안됨
     // 즉, 1개만 변경되어도 모든 요소에 대한 내용을 재출력
-    useEffect(() => {
-        console.log(user);
-    });
+    // useEffect(() => {
+    //     console.log(user);
+    // });
 
 
 

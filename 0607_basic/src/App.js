@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useMemo } from "react";
 import Hello from "./Hello";
 import './App.css';
 import Wrapper from "./Wrapper";
@@ -12,7 +12,13 @@ import UserList_3 from "./UserList_3";
 import UserList_4 from "./UserList_4";
 import UserList_5 from "./UserList_5";
 import UserList_6 from "./UserList_6";
+import UserList_7 from "./UserList_7";
 import CreateUser from "./CreateUser";
+
+function conuntActiveUsers(users) {
+  console.log('활성화 사용자 수를 세는 중...');
+  return users.filter(user => user.active).length;
+}
 
 
 function App() {
@@ -94,17 +100,17 @@ function App() {
 
 
     // CreateUser.js
-    // const user = {
-    //   id : nextId.current,
-    //   username,
-    //   email,
-    //   // ...inputs 이렇게 작성해도 됨
-    // };
+    const user = {
+      id : nextId.current,
+      username,
+      email,
+      // ...inputs 이렇게 작성해도 됨
+    };
 
     // // 배열 항목 변경 방법1 -> 스프레드 연산자로 복사 후 값을 덮어쓰기
     // // setUsers([...users, user]);
     // // 배열 항목 변경 방법2 -> .concat()함수 사용
-    // setUsers(users.concat(user));
+    setUsers(users.concat(user));
 
     // // users.push(user); 방법은 업데이트가 되지 않음
 
@@ -127,6 +133,10 @@ function App() {
     ));
   };
 
+  // UseList_7.js
+  // 첫 번째 요소는 무조건 함수여야하기 때문에 익명함수 사용
+  // [배열]이 변경 되어야 업데이트 됨
+  const count = useMemo(() => conuntActiveUsers(users), [users]);
 
   return (
     <>
@@ -196,14 +206,25 @@ function App() {
 
 
 
-
+      {/* Hook함수_useEffect(() => {코드}, [배열]);
       <CreateUser
         username={username}
         email={email}
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList_6 users={users} onRemove={onRemove} onToggle={onToggle} />
+      <UserList_6 users={users} onRemove={onRemove} onToggle={onToggle} /> */}
+      
+      {/* Hook함수_useMemo */}
+      <CreateUser
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
+      />
+      <UserList_7 users={users} onRemove={onRemove} onToggle={onToggle} />
+      {/* 리랜더링 될 때마다 "활성 사용자 수"를 카운트 함 */}
+      <div>활성 사용자 수: {count}</div>
 
     </>
   );
