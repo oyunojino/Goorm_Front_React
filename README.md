@@ -18,7 +18,7 @@
         - src
         - package.json
     
-## [Youtube 코딩 애플_Project_Blog](#)
+## [Youtube 코딩 애플_Project_Blog](https://youtu.be/00yJy7W0DQE)
     01. JSX 문법
         - 태그 작성 방법
         - class = className
@@ -30,6 +30,8 @@
     03. Component
 
 ## [패스트캠퍼스_React](#)
+    00. 참고 자료
+[벨로퍼트와 함께하는 모던 리액트](https://react.vlpt.us/)
     01. 기본 설명
         - 명령어
         - VSCode 단축키
