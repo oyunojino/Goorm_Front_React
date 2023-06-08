@@ -18,7 +18,7 @@
         - src
         - package.json
     
-## [Youtube_코딩 애플_Project_Blog](#)
+## [Youtube 코딩 애플_Project_Blog](#)
     01. JSX 문법
         - 태그 작성 방법
         - class = className
