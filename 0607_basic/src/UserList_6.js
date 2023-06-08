@@ -14,6 +14,7 @@ function User({ user, onRemove, onToggle }) {
 
     //     return () => {
     //         console.log('컴포넌트가 화면에서 사라짐');
+    //         // # 컴포넌트가 변경되기 전 사용하는 기능
     //         // # 컴포넌트가 화면에 사라질 때 사용하는 기능
     //         // 1. clearInterval, clearTimeout
     //         // 2. 라이브러리(D3, Video.js) 인스턴스를 제거할 때
@@ -24,15 +25,25 @@ function User({ user, onRemove, onToggle }) {
 
     // 요소가 있는 배열인 경우 ->
     // [user] 배열이 설정되거나 바뀔 때마다 호출
-    useEffect(() => {
-        console.log('user 값이 변경 후');
-        console.log(user);
+    // useEffect(() => {
+    //     console.log('user 값이 변경 후');
+    //     console.log(user);
 
-        return () => {
-            console.log('user 값 변경 전');
-            console.log(user);
-        }
-    }, [user]);
+    //     return () => {
+    //         console.log('user 값 변경 전');
+    //         console.log(user);
+    //     }
+    // }, [user]);
+
+
+
+    // 배열이 생략 된 경우 ->
+    // 컴포넌트 리랜더링 최적화가 안됨
+    // 즉, 1개만 변경되어도 모든 요소에 대한 내용을 재출력
+    useEffect(() => {
+        console.log(user);
+    });
+
 
 
     return (
