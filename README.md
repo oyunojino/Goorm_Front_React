@@ -29,7 +29,7 @@
     02. WARNING or ERROR
     03. Component
 
-## [패스트캠퍼스_React](#)
+## [Fastcampus velopert_React Tutorial](#)
     01. 기본 설명
         - 명령어
         - VSCode 단축키
